@@ -7,7 +7,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the Java application
-FROM cgr.dev/chainguard-private/jre:latest
+FROM cgr.dev/chainguard-private/maven:latest
 WORKDIR /app
 COPY image.jpg ./image.jpg
 COPY --from=build /app/target/ascii-converter-1.0-SNAPSHOT.jar app.jar
